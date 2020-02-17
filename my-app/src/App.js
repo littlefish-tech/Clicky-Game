@@ -13,7 +13,7 @@ import Score from "./components/Score";
 class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
-    icon,
+    icon: icon,
     score: 0,
     topScore: 0,
     message: "Click any image to begin!",
@@ -52,17 +52,12 @@ wrongChoice = () => {
 }
 
 
-  clickIconImage = id => {
-    let clickedIcon = this.state.clickedIcon
-    if(clickedIcon.includes(id)){
-      this.setState({ clickedIcon: [], score: 0 });
-      return;
-    }else{
-      clickedIcon.push(id);
-      this.setState({score: this.state.score + 1})
+clickIconImage = event => {
 
-  }
-  }
+  const name = event.target.attributes.getNamedItem("name").value;
+  this.shuffleCharacters()
+  this.checkGuess(name, this.updateTopScore)
+}
 
   render(){
   return (
