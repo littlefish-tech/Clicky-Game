@@ -1,0 +1,9 @@
+.card > img {
+  background: #fff;
+  border-radius: 2px;
+  height: 250px;
+  margin: 10px;
+float: left;
+  width: 23%;
+  box-shadow: 0 3px 6px #999, 0 3px 6px #999;
+  }
