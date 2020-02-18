@@ -7,6 +7,7 @@ import Title from "./components/Title";
 import Wrapper from "./components/Wrapper";
 import IconCard from "./components/IconCard";
 import Score from "./components/Score";
+import Alert from "./components/Alert";
 
 
 
@@ -33,6 +34,19 @@ for (let i = icon.length - 1; i > 0; i--) {
 return arr;
 } 
 
+checkGuess = (name, cb) => {
+  const newState = { ...this.state };
+  if (newState.clickedIcon.includes(name)) {
+    newState.message = `YOU ALREADY PICKED "${name.toUpperCase()}"!`
+    newState.clickedIcon = []
+    this.setState(this.state = newState)
+  } else {
+    newState.clickedIcon.push(name)
+    newState.message = `GOOD CHOICE!`
+    this.setState(this.state = newState)
+  }
+  cb(newState, this.alertWinner)
+}
 correctChoice = () => {
 
   if (this.state.score + 1 > this.state.topScore) {
@@ -57,6 +71,7 @@ clickIconImage = () => {
 
   this.correctChoice()
   this.arrayShuffle()
+  // this.checkGuess()
   // this.checkGuess(name, this.updateTopScore)
 };
 
@@ -65,6 +80,7 @@ clickIconImage = () => {
 
     <Wrapper>
         <Title>Clicky Game</Title>
+        <Alert></Alert>
         <Score>Your Score:</Score>
         {this.state.icon.map(iconImage => (
           <IconCard
