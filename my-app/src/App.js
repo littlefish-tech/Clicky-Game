@@ -24,11 +24,11 @@ arrayShuffle = (arr) =>{
 let newPos,
 temp;
 
-for (let i = arr.length - 1; i > 0; i--) {
+for (let i = icon.length - 1; i > 0; i--) {
   newPos = Math.floor(Math.random() * (i + 1));
-  temp = arr[i];
-  arr[i] = arr[newPos];
-  arr[newPos] = temp;
+  temp = icon[i];
+  icon[i] = icon[newPos];
+  icon[newPos] = temp;
 }
 return arr;
 } 
@@ -52,12 +52,13 @@ wrongChoice = () => {
 }
 
 
-clickIconImage = event => {
 
-  const name = event.target.attributes.getNamedItem("name").value;
-  this.shuffleCharacters()
-  this.checkGuess(name, this.updateTopScore)
-}
+clickIconImage = () => {
+
+  this.correctChoice()
+  this.arrayShuffle()
+  // this.checkGuess(name, this.updateTopScore)
+};
 
   render(){
   return (

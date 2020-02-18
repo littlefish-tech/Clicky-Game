@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.css";
 
-function iconCard(props) {
+const iconCard = (props) => {
   return (
     <div className="card">
-        <img alt={props.name} src={props.image} id={props.id} onClick={() => props.clickIconImage(props.id)} className="clickIconImage"/>
+        <img alt={props.name} src={props.image} id={props.id} onClick={() => props.clickIconImage(props.image)} className="clickIconImage"/>
     </div>
   );
 }
