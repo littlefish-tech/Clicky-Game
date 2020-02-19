@@ -15,9 +15,8 @@ class App extends Component {
   // Setting this.state.friends to the friends json array
   state = {
     icon: icon,
-    score: 0,
     topScore: 0,
-    message: "Click any image to begin!",
+    message: "",
     clickedIcon: []
   };
 
@@ -34,6 +33,7 @@ for (let i = icon.length - 1; i > 0; i--) {
 return arr;
 } 
 
+
 checkGuess = (name, cb) => {
   const newState = { ...this.state };
   if (newState.clickedIcon.includes(name)) {
@@ -47,23 +47,7 @@ checkGuess = (name, cb) => {
   }
   cb(newState, this.alertWinner)
 }
-correctChoice = () => {
 
-  if (this.state.score + 1 > this.state.topScore) {
-    this.setState({topScore: this.state.topScore + 1})
-  } else {
-    this.setState({score: this.state.score + 1, message: "You guessed correctly"})
-  }
-
-}  
-
-wrongChoice = () => {
-
-  this.setState({score: 0, message: "You guessed incorrectly!"})
-  const updatedCharacters = this.state.characters.map(ch => ch.isClicked === true ? { ...ch, isClicked: false } : ch)
-  return updatedCharacters
-
-}
 
 
 
@@ -81,7 +65,7 @@ clickIconImage = () => {
     <Wrapper>
         <Title>Clicky Game</Title>
         <Alert></Alert>
-        <Score>Your Score:</Score>
+        <Score type="Score" score={this.state.pickedChars.length} />
         {this.state.icon.map(iconImage => (
           <IconCard
           clickIconImage={this.clickIconImage}
