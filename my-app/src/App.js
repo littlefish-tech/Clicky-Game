@@ -65,11 +65,10 @@ updateTopScoreHandler = (newState) => {
 }
 
 clickIconImage = () => {
-  const name = attributes.getNamedItem("name").value;
+  // const name = event.target.attributes.getNamedItem("name").value;
   // this.correctChoice()
   this.arrayShuffle()
   this.checkGuessHandler()
-  this.checkGuessHandler(name, this.updateTopScoreHandler)
   // this.checkGuess()
   // this.checkGuess(name, this.updateTopScore)
 };
