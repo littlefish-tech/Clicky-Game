@@ -33,11 +33,18 @@ for (let i = icon.length - 1; i > 0; i--) {
 return arr;
 } 
 
+winnerAlertHandler = (newState) => {
+  if (newState.clickedIcon.length === 12) {
+    newState.message = "You Win!";
+    newState.clickedIcon = [];
+    this.setState(this.state = newState)
+  }
+}
 
-checkGuess = (name, cb) => {
+checkGuessHandler = (name) => {
   const newState = { ...this.state };
   if (newState.clickedIcon.includes(name)) {
-    newState.message = `YOU ALREADY PICKED "${name.toUpperCase()}"!`
+    newState.message = `YOU ALREADY PICKED "${name}"!`
     newState.clickedIcon = []
     this.setState(this.state = newState)
   } else {
@@ -45,16 +52,24 @@ checkGuess = (name, cb) => {
     newState.message = `GOOD CHOICE!`
     this.setState(this.state = newState)
   }
-  cb(newState, this.alertWinner)
+  return (newState, this.winnerAlertHandler)
 }
 
 
-
+updateTopScoreHandler = (newState) => {
+  if (newState.clickedIcon.length > newState.topScore) {
+    newState.topScore++
+    this.setState(this.state = newState)
+  }
+  return(newState)
+}
 
 clickIconImage = () => {
-
-  this.correctChoice()
+  const name = attributes.getNamedItem("name").value;
+  // this.correctChoice()
   this.arrayShuffle()
+  this.checkGuessHandler()
+  this.checkGuessHandler(name, this.updateTopScoreHandler)
   // this.checkGuess()
   // this.checkGuess(name, this.updateTopScore)
 };
@@ -64,8 +79,12 @@ clickIconImage = () => {
 
     <Wrapper>
         <Title>Clicky Game</Title>
-        <Alert></Alert>
-        <Score type="Score" score={this.state.pickedChars.length} />
+        {this.state.message === "GOOD CHOICE!" ? (
+                <Alert message={this.state.message} />
+              ) : (
+                  <Alert message={this.state.message} />
+                )}
+        <Score type="Score" score={this.state.clickedIcon.length} />
         {this.state.icon.map(iconImage => (
           <IconCard
           clickIconImage={this.clickIconImage}

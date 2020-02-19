@@ -1,8 +1,9 @@
+
 import React from "react";
-// import "./Alert.css";
+// import "./style.css";
 
 const Alert = props => (
-    <div className="default" style={props.style}>
+    <div className="alertMessage">
         {props.message ? (
             <p>{props.message}</p>
         ) : (
