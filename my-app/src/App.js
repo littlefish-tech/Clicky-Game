@@ -17,7 +17,8 @@ class App extends Component {
     icon: icon,
     topScore: 0,
     message: "",
-    clickedIcon: []
+    clickedIcon: [],
+    score: 0
   };
 
 arrayShuffle = (arr) =>{
@@ -35,33 +36,46 @@ return arr;
 
 winnerAlertHandler = (newState) => {
   if (newState.clickedIcon.length === 12) {
-    newState.message = "You Win!";
-    newState.clickedIcon = [];
-    this.setState(this.state = newState)
+   this.setState({
+     message: "You Win!!"
+   })
   }
 }
 
 checkGuessHandler = (name) => {
-  const newState = { ...this.state };
-  if (newState.clickedIcon.includes(name)) {
-    newState.message = `YOU ALREADY PICKED "${name}"!`
-    newState.clickedIcon = []
-    this.setState(this.state = newState)
+  const name = event.target.attributes.getNamedItem("name").value;
+  if (this.state.clickedIcon.includes(name)) {
+   this.setState({
+     message: "You have clicked this Icon already!",
+     score: 0
+   })
   } else {
-    newState.clickedIcon.push(name)
-    newState.message = `GOOD CHOICE!`
-    this.setState(this.state = newState)
+
+    this.setState({
+      message: "Good Choice!",
+      clickedIcon: this.state.clickedIcon.push(name)
+    })
+    // newState.clickedIcon.push(name)
+    // newState.message = `GOOD CHOICE!`
+    // this.setState(this.state = newState)
   }
-  return (newState, this.winnerAlertHandler)
+  return this.checkGuessHandler
 }
 
 
-updateTopScoreHandler = (newState) => {
-  if (newState.clickedIcon.length > newState.topScore) {
-    newState.topScore++
-    this.setState(this.state = newState)
+updateTopScoreHandler = (theTopScore) => {
+  if (this.state.clickedIcon.length > this.state.topScore) {
+
+    this.setState({
+      topScore: this.state.topScore
+    })
   }
-  return(newState)
+  else{
+    this.setState({
+      topScore: this.state.topScore + 1
+    })
+  }
+  return(theTopScore)
 }
 
 clickIconImage = () => {
