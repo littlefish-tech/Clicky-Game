@@ -1,12 +1,13 @@
 import React from "react";
 import "./style.css";
 
-const iconCard = (props) => {
+
+const IconCard = (props)=> {
   return (
     <div className="card">
-        <img alt={props.name} src={props.image} id={props.id} onClick={() => props.clickIconImage(props.image)} className="clickIconImage"/>
+        <img alt={props.name} src={props.image} id={props.id} onClick={() => props.arrayShuffle()} className="clickIconImage"/>
     </div>
   );
 }
 
-export default iconCard;
+export default IconCard;
