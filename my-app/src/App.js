@@ -6,7 +6,7 @@ import { render } from '@testing-library/react';
 
 import Wrapper from "./components/Wrapper";
 import IconCard from "./components/IconCard";
-// import Score from "./components/Score";
+import Score from "./components/Score";
 // import Alert from "./components/Alert";
 
 
@@ -18,13 +18,18 @@ class App extends Component {
     topScore: 0,
     message: "",
     score: 0,
-    iconArray: []
+    iconArray: [],
+    historyArray: [],
+    isGameOver: false
   };
 
-arrayShuffle = (arr) =>{
-  console.log("click")
+  
+
+arrayShuffle = () =>{
+  // console.log(this)
 let newPos,
-temp;
+temp
+;
 
 for (let i = this.state.icons.length - 1; i > 0; i--) {
   newPos = Math.floor(Math.random() * (i + 1));
@@ -33,34 +38,76 @@ for (let i = this.state.icons.length - 1; i > 0; i--) {
   this.state.icons[newPos] = temp;
 }
 this.setState({icons: icons})
-
 } 
 
+handleClick = id =>{
 
-// clickIconImage = () => {
-// console.log("clicked")
-// this.arrayShuffle();
-// };
+  if (this.state.historyArray.includes(id)){
+    this.setState({isGameOver: true})
+    
+  } else {
+    this.setState({historyArray: [...this.state.historyArray, id]})
+    this.arrayShuffle()
+    // console.log(this.state.historyArray)
+    this.setState({score: this.state.score+1})
+    console.log(this.state.score)
+  }  
+  }
+// scoreHandler = name => {
+//   const icon = this.click(icon.name)
+// if (this.state.iconArray.includes(icon.name)){
+//   this.setState({score: 0})
+// }else{
+//   this.setState({iconArray: iconArray.push(icon.name)})
+//   this.setState({score: score +1})
+// }
+// }
+
 
   render(){
-  return (
 
-    <Wrapper>
-        <h1 className = "title">Clicky Game</h1>
+if(this.state.isGameOver){
+  return(
+    <h1>You lost!!</h1>
+  )} else {
+    return (
+
+        <Wrapper>
+            <h1 className = "title">Clicky Game</h1>
+          
+            
+            {this.state.icons.map(icon => (
+              <IconCard
+              handleClick={this.handleClick}
+                id={icon.id}
+                key={icon.image}
+                image={icon.image}
+              />
+            ))}
+          </Wrapper>
+        
+      );
+  }
+    // (isGameOver ? return(
+    //   <h1>You lost!!</h1>
+    // ) : return (
+
+    //   <Wrapper>
+    //       <h1 className = "title">Clicky Game</h1>
+        
+          
+    //       {this.state.icons.map(icon => (
+    //         <IconCard
+    //         handleClick={this.handleClick}
+    //           id={icon.id}
+    //           key={icon.image}
+    //           image={icon.image}
+    //         />
+    //       ))}
+    //     </Wrapper>
       
-        {/* <Score type="Score" score={this.state.clickedIcon.length} /> */}
-        {this.state.icons.map(icon => (
-          <IconCard
-          arrayShuffle={this.arrayShuffle}
-         
-            id={icon.id}
-            key={icon.image}
-            image={icon.image}
-          />
-        ))}
-      </Wrapper>
-    
-  );
+    // );
+    // )
 }
 }
 export default App;
