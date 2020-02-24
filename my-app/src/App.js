@@ -6,6 +6,8 @@ import { render } from '@testing-library/react';
 
 import Wrapper from "./components/Wrapper";
 import IconCard from "./components/IconCard";
+import TopScore from "./components/TopScore";
+import Title from './components/Title';
 import Score from "./components/Score";
 // import Alert from "./components/Alert";
 
@@ -53,15 +55,7 @@ handleClick = id =>{
     console.log(this.state.score)
   }  
   }
-// scoreHandler = name => {
-//   const icon = this.click(icon.name)
-// if (this.state.iconArray.includes(icon.name)){
-//   this.setState({score: 0})
-// }else{
-//   this.setState({iconArray: iconArray.push(icon.name)})
-//   this.setState({score: score +1})
-// }
-// }
+
 
 
   render(){
@@ -73,9 +67,9 @@ if(this.state.isGameOver){
     return (
 
         <Wrapper>
-            <h1 className = "title">Clicky Game</h1>
+            <Title>Clicky Name</Title>
           
-            
+            <Score>Score: {this.state.score}</Score>
             {this.state.icons.map(icon => (
               <IconCard
               handleClick={this.handleClick}
@@ -88,9 +82,8 @@ if(this.state.isGameOver){
         
       );
   }
-    // (isGameOver ? return(
-    //   <h1>You lost!!</h1>
-    // ) : return (
+  
+    // return (
 
     //   <Wrapper>
     //       <h1 className = "title">Clicky Game</h1>
