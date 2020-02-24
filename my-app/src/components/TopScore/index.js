@@ -3,7 +3,7 @@ import "./style.css";
 
 
 const TopScore = props => {
-return <h3 className = "topScore">{props.children}</h3>
+return <div className = "topScore"><strong>{props.children}</strong></div>
 };
 
   export default TopScore;
