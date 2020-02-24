@@ -2,10 +2,8 @@ import React from "react";
 import "./style.css";
 
 
-const TopScore = (props) => (
-    <div className="gameTopScore">
-      <h3 className="topCcore">Your Score: </h3>
-    </div>
-  );
+const TopScore = props => {
+return <h3 className = "topScore">{props.children}</h3>
+};
 
   export default TopScore;

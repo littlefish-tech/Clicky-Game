@@ -46,7 +46,8 @@ handleClick = id =>{
 
   if (this.state.historyArray.includes(id)){
     this.setState({isGameOver: true})
-    
+    this.topScoreHandler()
+    this.setState({score: 0})
   } else {
     this.setState({historyArray: [...this.state.historyArray, id]})
     this.arrayShuffle()
@@ -56,51 +57,62 @@ handleClick = id =>{
   }  
   }
 
+  topScoreHandler = () => {
+    if (this.state.score > this.state.topScore){
+      this.setState({topScore: this.state.score})
+    } else {
+      this.setState({topScore: this.state.topScore})
+    }
+  }
 
 
   render(){
 
-if(this.state.isGameOver){
-  return(
-    <h1>You lost!!</h1>
-  )} else {
+// if(this.state.isGameOver){
+//   return(
+//     <h1>You lost!!</h1>
+//   )} else {
+//     return (
+
+//         <Wrapper>
+//             <Title>Clicky Name</Title>
+          
+//             <Score>Score: {this.state.score}</Score>
+//             <TopScore>Top Score: {this.state.topScore}</TopScore>
+//             {this.state.icons.map(icon => (
+//               <IconCard
+//               handleClick={this.handleClick}
+//                 id={icon.id}
+//                 key={icon.image}
+//                 image={icon.image}
+//               />
+//             ))}
+//           </Wrapper>
+        
+//       );
+//   }
+  
     return (
 
-        <Wrapper>
-            <Title>Clicky Name</Title>
+      <Wrapper>
+         <Title>Clicky Name</Title>
           
-            <Score>Score: {this.state.score}</Score>
-            {this.state.icons.map(icon => (
-              <IconCard
-              handleClick={this.handleClick}
-                id={icon.id}
-                key={icon.image}
-                image={icon.image}
-              />
-            ))}
-          </Wrapper>
-        
-      );
-  }
-  
-    // return (
-
-    //   <Wrapper>
-    //       <h1 className = "title">Clicky Game</h1>
+          <Score>Score: {this.state.score}</Score>
+          <TopScore>Top Score: {this.state.topScore}</TopScore>
         
           
-    //       {this.state.icons.map(icon => (
-    //         <IconCard
-    //         handleClick={this.handleClick}
-    //           id={icon.id}
-    //           key={icon.image}
-    //           image={icon.image}
-    //         />
-    //       ))}
-    //     </Wrapper>
+          {this.state.icons.map(icon => (
+            <IconCard
+            handleClick={this.handleClick}
+              id={icon.id}
+              key={icon.image}
+              image={icon.image}
+            />
+          ))}
+        </Wrapper>
       
-    // );
-    // )
+    );
+    
 }
 }
 export default App;
