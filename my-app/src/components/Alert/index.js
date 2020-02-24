@@ -1,15 +1,8 @@
 
 import React from "react";
-// import "./style.css";
+import "./style.css";
 
-const Alert = props => (
-    <div className="alertMessage">
-        {props.message ? (
-            <p>{props.message}</p>
-        ) : (
-                <p className="default-msg black">Click an image to begin!</p>
-            )}
-    </div>
-)
-
+const Alert = props =>{
+return <div className = "alert">{props.children}</div>
+}
 export default Alert;

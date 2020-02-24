@@ -9,6 +9,7 @@ import IconCard from "./components/IconCard";
 import TopScore from "./components/TopScore";
 import Title from './components/Title';
 import Score from "./components/Score";
+import Alert from './components/Alert';
 // import Alert from "./components/Alert";
 
 
@@ -18,7 +19,7 @@ class App extends Component {
   state = {
     icons,
     topScore: 0,
-    message: "",
+    alert: "Click Any Image to Start",
     score: 0,
     iconArray: [],
     historyArray: [],
@@ -48,6 +49,7 @@ handleClick = id =>{
     this.setState({isGameOver: true})
     this.topScoreHandler()
     this.setState({score: 0})
+    this.setState({alert: "You have already clicked this Image, start again"})
   } else {
     this.setState({historyArray: [...this.state.historyArray, id]})
     this.arrayShuffle()
@@ -64,7 +66,8 @@ handleClick = id =>{
       this.setState({topScore: this.state.topScore})
     }
   }
-
+ 
+  
 
   render(){
 
@@ -99,7 +102,7 @@ handleClick = id =>{
           
           <Score>Score: {this.state.score}</Score>
           <TopScore>Top Score: {this.state.topScore}</TopScore>
-        
+          <Alert>{this.state.alert}</Alert>
           
           {this.state.icons.map(icon => (
             <IconCard
