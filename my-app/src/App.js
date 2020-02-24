@@ -28,7 +28,7 @@ class App extends Component {
 
   
 
-arrayShuffle = () =>{
+arrayShuffle = () => {
   // console.log(this)
 let newPos,
 temp
