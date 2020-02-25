@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import icons from "./icons.json";
-import { render } from '@testing-library/react';
+// import { render } from '@testing-library/react';
 
 import Wrapper from "./components/Wrapper";
 import IconCard from "./components/IconCard";
@@ -23,7 +22,7 @@ class App extends Component {
     score: 0,
     iconArray: [],
     historyArray: [],
-    isGameOver: false
+    // isGameOver: false
   };
 
   
@@ -46,15 +45,17 @@ this.setState({icons: icons})
 handleClick = id =>{
 
   if (this.state.historyArray.includes(id)){
-    this.setState({isGameOver: true})
+    // this.setState({isGameOver: true})
     this.topScoreHandler()
     this.setState({score: 0})
     this.setState({alert: "You have already clicked this Image, start again"})
+    this.setState({historyArray: []})
   } else {
     this.setState({historyArray: [...this.state.historyArray, id]})
     this.arrayShuffle()
     // console.log(this.state.historyArray)
     this.setState({score: this.state.score+1})
+    this.setState({alert: "Good Job!!"})
     // console.log(this.state.score)
   }  
   }
