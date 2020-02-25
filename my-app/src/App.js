@@ -55,7 +55,7 @@ handleClick = id =>{
     this.arrayShuffle()
     // console.log(this.state.historyArray)
     this.setState({score: this.state.score+1})
-    console.log(this.state.score)
+    // console.log(this.state.score)
   }  
   }
 
@@ -69,7 +69,7 @@ handleClick = id =>{
  
   
 
-  render(){
+  
 
 // if(this.state.isGameOver){
 //   return(
@@ -94,7 +94,7 @@ handleClick = id =>{
         
 //       );
 //   }
-  
+render(){
     return (
 
       <Wrapper>
