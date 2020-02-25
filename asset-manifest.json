@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/my-app/static/css/main.6393c20a.chunk.css",
-    "main.js": "/my-app/static/js/main.3e0266e0.chunk.js",
-    "main.js.map": "/my-app/static/js/main.3e0266e0.chunk.js.map",
-    "runtime-main.js": "/my-app/static/js/runtime-main.56c001b7.js",
-    "runtime-main.js.map": "/my-app/static/js/runtime-main.56c001b7.js.map",
-    "static/js/2.a39a039c.chunk.js": "/my-app/static/js/2.a39a039c.chunk.js",
-    "static/js/2.a39a039c.chunk.js.map": "/my-app/static/js/2.a39a039c.chunk.js.map",
-    "index.html": "/my-app/index.html",
-    "precache-manifest.23f0f9f3b378d468bd23b06c881586c1.js": "/my-app/precache-manifest.23f0f9f3b378d468bd23b06c881586c1.js",
-    "service-worker.js": "/my-app/service-worker.js",
-    "static/css/main.6393c20a.chunk.css.map": "/my-app/static/css/main.6393c20a.chunk.css.map",
-    "static/js/2.a39a039c.chunk.js.LICENSE.txt": "/my-app/static/js/2.a39a039c.chunk.js.LICENSE.txt",
-    "static/media/logo.svg": "/my-app/static/media/logo.5d5d9eef.svg"
+    "main.css": "/Clicky-Game/static/css/main.6393c20a.chunk.css",
+    "main.js": "/Clicky-Game/static/js/main.68d563d3.chunk.js",
+    "main.js.map": "/Clicky-Game/static/js/main.68d563d3.chunk.js.map",
+    "runtime-main.js": "/Clicky-Game/static/js/runtime-main.297251f5.js",
+    "runtime-main.js.map": "/Clicky-Game/static/js/runtime-main.297251f5.js.map",
+    "static/js/2.1f2d4a80.chunk.js": "/Clicky-Game/static/js/2.1f2d4a80.chunk.js",
+    "static/js/2.1f2d4a80.chunk.js.map": "/Clicky-Game/static/js/2.1f2d4a80.chunk.js.map",
+    "index.html": "/Clicky-Game/index.html",
+    "precache-manifest.498f0b510ac044d2c81085a67a411840.js": "/Clicky-Game/precache-manifest.498f0b510ac044d2c81085a67a411840.js",
+    "service-worker.js": "/Clicky-Game/service-worker.js",
+    "static/css/main.6393c20a.chunk.css.map": "/Clicky-Game/static/css/main.6393c20a.chunk.css.map",
+    "static/js/2.1f2d4a80.chunk.js.LICENSE.txt": "/Clicky-Game/static/js/2.1f2d4a80.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/Clicky-Game/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.56c001b7.js",
-    "static/js/2.a39a039c.chunk.js",
+    "static/js/runtime-main.297251f5.js",
+    "static/js/2.1f2d4a80.chunk.js",
     "static/css/main.6393c20a.chunk.css",
-    "static/js/main.3e0266e0.chunk.js"
+    "static/js/main.68d563d3.chunk.js"
   ]
 }
